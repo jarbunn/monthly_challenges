@@ -6,11 +6,10 @@
     <title>{{month_name | title}}</title>
 </head>
 <body>
-    <h1>{{month_name | title}}</h1>
-    {% if text is not None %}
-        <h2>{{text}}</h2> 
-    {% else %}
-        <p>there is no challenge for this month yet</p>
-    {% endif %}
+    <ul>
+        {% for month in months %}
+            <li><a href="{% url "month-challenge" month %}">{{month | title}}</a></li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
